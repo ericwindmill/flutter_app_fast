@@ -3,10 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_fast/firebase_options.dart';
-import 'package:flutter_app_fast/widgets/chat_view.dart';
-import 'package:flutter_app_fast/widgets/sign_in_button_view.dart';
-
-import 'widgets/auth_guard.dart';
+import 'package:flutter_app_fast/chat_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,15 +24,6 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: const ChatPage(),
-      // Make Scrolling work with mouse.
-      scrollBehavior: MaterialScrollBehavior().copyWith(
-        dragDevices: {
-          PointerDeviceKind.mouse,
-          PointerDeviceKind.touch,
-          PointerDeviceKind.stylus,
-          PointerDeviceKind.unknown
-        },
-      ),
     );
   }
 }
@@ -50,18 +38,22 @@ class ChatPage extends StatelessWidget {
         title: const Text('Googles Greatest Chat App'),
         centerTitle: false,
         actions: [
-          IconButton(
-            icon: const Icon(Icons.logout),
-            onPressed: () {
-              FirebaseAuth.instance.signOut();
+          ElevatedButton(
+            onPressed: () async {
+              final auth = FirebaseAuth.instance;
+              if (auth.currentUser != null) {
+                await auth.signOut();
+              } else {
+                await auth.signInAnonymously();
+              }
             },
-          )
+            child: Text(
+              'Log In Or Out',
+            ),
+          ),
         ],
       ),
-      body: const AuthGuard(
-        signedOutWidget: SignInButtonView(),
-        signedInWidget: ChatView(),
-      ),
+      body: ChatView(),
     );
   }
 }

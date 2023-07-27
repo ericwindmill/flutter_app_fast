@@ -168,6 +168,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  generic_social_widgets:
+    dependency: "direct main"
+    description:
+      name: generic_social_widgets
+      sha256: "370010dcb21a33f17ec3427f351ddd357fc899550dbeae12b1d75c9e66f56584"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.1"
   http_parser:
     dependency: transitive
     description:
@@ -310,5 +318,5 @@ packages:
     source: hosted
     version: "2.1.4"
 sdks:
-  dart: ">=3.0.0-0 <4.0.0"
+  dart: ">=3.0.5 <4.0.0"
   flutter: ">=1.20.0"

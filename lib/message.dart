@@ -3,13 +3,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class Message {
   final String uid;
   final String message;
-  final String displayName;
   final Timestamp? time;
 
   Message({
     required this.uid,
     required this.message,
-    required this.displayName,
     this.time,
   });
 
@@ -19,7 +17,6 @@ class Message {
     return Message(
       uid: data?['uid'],
       message: data?['message'],
-      displayName: data?['displayName'] ?? 'CoolName',
       time: data?['time'],
     );
   }
@@ -28,7 +25,6 @@ class Message {
     return {
       'uid': uid,
       'message': message,
-      'displayName': displayName,
       'time': time ?? Timestamp.now(),
     };
   }
