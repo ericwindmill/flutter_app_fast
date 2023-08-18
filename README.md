@@ -1,16 +1,11 @@
 # flutter_app_fast
 
-A new Flutter project.
+Codebase for the talk 
 
-## Getting Started
+# Steps
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Blank slate
+2. Project setup (Add deps and flutterfire configure)
+3. Add and app structure, Auth, Login button, AuthStateChanges listener 
+4. Add Firebase Query, Message class, and widgets to view messages,
+5. Add widgets to post messages
