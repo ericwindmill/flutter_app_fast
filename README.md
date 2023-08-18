@@ -1,16 +1,19 @@
 # flutter_app_fast
 
-A new Flutter project.
+Repository for talks
 
-## Getting Started
+# Steps
 
-This project is a starting point for a Flutter application.
+There are 4 Flutter projects found in the steps/ directory. These projects represent the following steps in their **finished** state.  
 
-A few resources to get you started if this is your first Flutter project:
+1. Blank slate
+2. Firebase setup
+3. Add most UI
+4. Add Firebase and wire up buttons to do stuff (i.e. The finished product)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Blank slate
+2. Project setup (Add deps and flutterfire configure)
+3. Add main.dart code (Add Auth plus the button to login)
+4. Add the the chat_view.dart code (basically just move down the file in order)
+5. Add the Firestore Query last so when we hot reload everything works
