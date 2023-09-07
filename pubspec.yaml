@@ -31,11 +31,9 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.2
   firebase_core: ^2.10.0
   cloud_firestore: ^4.5.2
   firebase_auth: ^4.4.2
-  english_words: ^4.0.0
   generic_social_widgets: ^0.0.1
 
 dev_dependencies:

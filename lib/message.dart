@@ -3,21 +3,20 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class Message {
   final String uid;
   final String message;
-  final Timestamp? time;
+  final Timestamp? timestamp;
 
   Message({
     required this.uid,
     required this.message,
-    this.time,
+    this.timestamp,
   });
 
-  factory Message.fromFirestore(
-      DocumentSnapshot<Map<String, dynamic>> snapshot) {
+  factory Message.fromFirestore(DocumentSnapshot<Map<String, dynamic>> snapshot) {
     final data = snapshot.data();
     return Message(
       uid: data?['uid'],
       message: data?['message'],
-      time: data?['time'],
+      timestamp: data?['timestamp'],
     );
   }
 
@@ -25,15 +24,10 @@ class Message {
     return {
       'uid': uid,
       'message': message,
-      'time': time ?? Timestamp.now(),
+      'timestamp': timestamp ?? Timestamp.now(),
     };
   }
 }
 
-final messagesQuery = FirebaseFirestore.instance
-    .collection('messages')
-    .withConverter(
-      fromFirestore: (snapshot, idx) => Message.fromFirestore(snapshot),
-      toFirestore: (message, idx) => message.toFirestore(),
-    )
-    .orderBy('time', descending: true);
+final messagesQuery =
+    FirebaseFirestore.instance.collection('messages').orderBy('timestamp', descending: true);
