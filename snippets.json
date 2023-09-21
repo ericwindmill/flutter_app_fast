@@ -1,0 +1,32 @@
+{
+	"messages": {
+		"prefix": "messages",
+		"description": "add a messages class",
+		"body": [
+			"class Message {",
+				"\tfinal String text;",
+				"\tfinal String uid;",
+				"\tTimestamp? timestamp;",
+			    "",
+				"\tMessage({required this.text, required this.uid, this.timestamp,});",
+			    "",
+				"\tMap<String, dynamic> toFirestore() {",
+				  "\t\treturn {",
+					"\t\t\t'text': text,",
+					"\t\t\t'uid': uid,",
+					"\t\t\t'timestamp': timestamp ?? Timestamp.now(),",
+				  "\t\t};",
+				"\t}",
+			    "",
+				"\tfactory Message.fromFirestore(Map<String, dynamic> snapshot) {",
+				  "\t\treturn Message(",
+					"\t\t\ttext: snapshot['text'],",
+					"\t\t\tuid: snapshot['uid'],",
+					"\t\t\ttimestamp: snapshot['timestamp'],",
+				  "\t\t);",
+				"\t}",
+			  "}"
+		]
+
+	}
+}
